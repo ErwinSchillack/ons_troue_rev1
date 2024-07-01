@@ -1,0 +1,50 @@
+.slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden; /* Ensures nothing spills out of the slideshow container */
+}
+
+.slide {
+    display: none;
+    width: 100%; 
+    height: 500px; /* Or your desired fixed height */
+    position: relative;
+    text-align: center; /* Center-align the images if they don't cover the full container */
+}
+
+.slide img {
+    max-width: 100%; /* Ensures images scale down if they are too wide */
+    max-height: 100%; /* Ensures images scale down if they are too tall */
+    vertical-align: middle; /* Helps align images in the middle vertically */
+    object-fit: contain; /* Change from 'cover' to 'contain' to ensure no parts of the image are cut off */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px; /* Adjust size to half of the height of the arrow for vertical centering */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; /* Prevent text selection */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
