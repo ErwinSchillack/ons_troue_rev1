@@ -704,7 +704,7 @@ header .member-actions {
 
 
 
-#intro img, #events img {
+#intro img {
   border: 5px solid rgb(27, 55, 13); /* Uniform border for images */
   padding: 10px;
   background-color: #fff;
@@ -712,18 +712,6 @@ header .member-actions {
   width: 100%;
   height: auto;
   display: block; /* Ensures the image scales properly */
-}
-
-@media (max-width: 768px) {
-  #events .container {
-      margin-top: 0;
-      padding-top: 20px; /* Adds space to the top to prevent overlap */
-  }
-
-  #events img {
-      max-width: 100%; /* Ensures the image fits within the container */
-      margin-bottom: 20px; /* Space below the image */
-  }
 }
 
 /* Prevent overlap of map and content */
