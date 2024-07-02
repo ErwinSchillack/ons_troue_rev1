@@ -287,7 +287,9 @@ const guestPhotos = {
     "Jaco Augustyn":["img/gaste/h_ouers.jpeg"],
     "Charlotte Augustyn":["img/gaste/h_ouers.jpeg"],
     "Dolf Frick":["img/gaste/dolf_mariaan.jpeg"],
-    "Mariaan Prins":["img/gaste/dolf_mariaan.jpeg"]
+    "Mariaan Prins":["img/gaste/dolf_mariaan.jpeg"],
+    "Drikus Viljoen":["img/gaste/viljoene.jpeg"],
+    "Charne Viljoen":["img/gaste/viljoene.jpeg"]
     // Add more guests and their image paths
 };
 
