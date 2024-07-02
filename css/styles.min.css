@@ -1493,3 +1493,44 @@ body.modal-open {
 .modal-body {
   padding: 25px;
 }
+
+/* General Styles for RSVP Modal */
+#rsvp-modal .modal-dialog {
+  max-width: 90%; /* Limits the maximum width to 90% of the screen width */
+  margin: 30px auto; /* Centers the modal and provides some margin */
+}
+
+#rsvp-modal .modal-content {
+  background-color: #fff; /* Ensures the background is white */
+  padding: 20px; /* Adds padding inside the modal for spacing */
+  border-radius: 10px; /* Optional: rounds the corners of the modal */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Adds a shadow for better visibility */
+}
+
+#rsvp-modal .close {
+  font-size: 30px; /* Increases size of the close button */
+  color: #333; /* Dark color for visibility */
+  opacity: 1; /* Ensures the button is not transparent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #rsvp-modal .modal-dialog {
+      max-width: 95%; /* Allows the modal to take up a bit more space on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #rsvp-modal .modal-dialog {
+      max-width: 100%; /* Full width on very small screens */
+      margin: 10px; /* Less margin to use available space more effectively */
+  }
+
+  #rsvp-modal .modal-content {
+      padding: 10px; /* Reduces padding in the modal for small devices */
+  }
+
+  #rsvp-modal .close {
+      font-size: 25px; /* Slightly smaller close button on the smallest screens */
+  }
+}
