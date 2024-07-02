@@ -938,11 +938,11 @@ header .member-actions {
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #events ul li {
         font-size: 16px;
     }
-}
+} */
 
 #events .container {
     display: flex;
@@ -984,16 +984,19 @@ header .member-actions {
 }
 
 @media (max-width: 768px) {
-    #events .col-md-6 {
-        padding: 20px;
-        text-align: center;
-    }
+  #events .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      text-align: center;  
+      padding: 20px;       
+  }
 
-    #events img {
-        max-width: 90%; /* Smaller max-width might help on smaller screens */
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+  #events img {
+      max-width: 90%;     
+      height: auto;       
+      margin-top: 20px;   
+      margin-bottom: 20px; 
+  }
 }
 
 #events .col-md-6 {
