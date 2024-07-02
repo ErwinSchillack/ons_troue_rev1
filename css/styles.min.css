@@ -661,10 +661,7 @@ header .member-actions {
 #intro {
   padding-top: 40px;
 }
-#intro img {
-  width: 100%;
-  height: auto;
-}
+
 #intro p {
   text-align: center;
 }
@@ -687,6 +684,52 @@ header .member-actions {
       font-size: 14px; /* Adjust text size for smaller screens */
   }
 }
+
+
+
+#intro img, #events img {
+  border: 5px solid rgb(27, 55, 13); /* Uniform border for images */
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures the image scales properly */
+}
+
+#map, #events {
+  position: relative; /* Correct stacking context */
+  z-index: 1; /* Higher z-index to prevent overlap */
+}
+
+@media (max-width: 768px) {
+  #map-canvas, #events .container {
+      margin-top: 0;
+      padding-top: 20px; /* Adds space to the top to prevent overlap */
+  }
+
+  #events img {
+      max-width: 100%; /* Ensures the image fits within the container */
+      margin-bottom: 20px; /* Space below the image */
+  }
+}
+
+/* Prevent overlap of map and content */
+#map-content-wrapper {
+  margin-top: 0; /* Remove negative margin which causes overlap */
+  padding-top: 20px; /* Add padding to space out content */
+}
+
+/* Improvements to ensure visibility and correct stacking */
+.pointer-events-none {
+  pointer-events: none; /* Ensures no interaction with overlapped elements */
+}
+
+.pointer-events-auto {
+  pointer-events: auto; /* Allows interaction where needed */
+}
+
+
 
 
 .features {
