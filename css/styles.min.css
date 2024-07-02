@@ -4,7 +4,7 @@
 p {
   font-size: 15px;
   line-height: 29px;
-  color: rgba(28, 54, 83, 0.6);
+  color: rgb(27, 55, 13);
   padding-bottom: 20px;
 }
 h1 {
@@ -13,10 +13,10 @@ h1 {
 h2 {
   font-size: 40px;
   font-weight: 300;
-  color: #3d4351;
+  color: rgb(27, 55, 13);
 }
 h3 {
-  color: #3d4351;
+  color: rgb(27, 55, 13);
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -28,7 +28,7 @@ h4 {
 }
 h5 {
   font-size: 15px;
-  color: #3d4351;
+  color: rgb(27, 55, 13);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -695,24 +695,18 @@ header .member-actions {
   padding-top: 40px;
 }
 #intro img {
-  width: 100%;
-  height: auto;
+  max-width: 100%; /* Ensures the image never exceeds the container width */
+  height: auto; /* Maintains aspect ratio */
 }
 #intro p {
   text-align: center;
 }
 
 
-#intro img {
-  border: 5px solid rgb(27, 55, 13);
-  padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 100%;
-  height: auto;
+#intro .col-md-6 {
+  flex: 0 0 100%; /* Takes full width on smaller screens */
+  max-width: 100%; /* Ensures it doesn't exceed the viewport width */
 }
-
-
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   #intro .row > div {
@@ -881,9 +875,12 @@ header .member-actions {
     color: rgb(27, 55, 13);
 }
 
+
 #events {
-    color: #222; /* Default dark color for all text */
+  z-index: 2; /* Higher than the map to ensure it's on top if they overlap */
+  position: relative; /* Context for z-index */
 }
+
 
 #events h3.header {
     font-family: 'Playfair Display', serif;
@@ -1151,10 +1148,13 @@ header .member-actions {
 #video-content p {
   color: #fff;
 }
-#map-canvas {
-  height: 500px;
-  width: 100%;
+
+#map {
+  padding-top: 50px; /* Adds space at the top of the map section */
+  z-index: 1; /* Ensures it does not overlap content above */
+  position: relative; /* Context for z-index */
 }
+
 #map-content-wrapper {
   position: relative;
   margin-top: -502px;
@@ -1203,9 +1203,10 @@ header .member-actions {
   height: 300px; /* Fixed height, or adjust as needed */
 }
 
+
 @media (max-width: 768px) {
   #map-canvas {
-      height: 200px; /* Smaller height for smaller screens */
+      height: 200px; /* Adjust height for smaller devices */
   }
 }
 
