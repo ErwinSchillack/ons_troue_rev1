@@ -363,8 +363,9 @@ input[list] {
 /* Adjust the background size specifically for mobile devices */
 @media (max-width: 768px) {
   .hero {
-      background-size: contain; /* Makes the entire image fit within the container without cutting off */
-      min-height: 800px; /* Adjust height to be less for mobile */
+      background-size: cover; /* Keep cover for a consistent look */
+      min-height: 800px; /* Adjust min-height for mobile devices */
+      background-repeat: no-repeat; /* Ensures the image does not repeat */
   }
 }
 
@@ -713,13 +714,8 @@ header .member-actions {
   display: block; /* Ensures the image scales properly */
 }
 
-#map, #events {
-  position: relative; /* Correct stacking context */
-  z-index: 1; /* Higher z-index to prevent overlap */
-}
-
 @media (max-width: 768px) {
-  #map-canvas, #events .container {
+  #events .container {
       margin-top: 0;
       padding-top: 20px; /* Adds space to the top to prevent overlap */
   }
