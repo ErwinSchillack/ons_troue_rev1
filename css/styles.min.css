@@ -359,6 +359,15 @@ input[list] {
   position: -webkit-sticky;
   flex-wrap: nowrap; /* Prevents the items from wrapping */
 }
+
+/* Adjust the background size specifically for mobile devices */
+@media (max-width: 768px) {
+  .hero {
+      background-size: contain; /* Makes the entire image fit within the container without cutting off */
+      min-height: 800px; /* Adjust height to be less for mobile */
+  }
+}
+
 .hero .down-arrow a {
   color: #fff;
 }
@@ -400,14 +409,15 @@ input[list] {
 
 .hero .navigation ul li a {
   font-family: 'Playfair Display', serif;
-  font-size: 18px; /* Adjust font size if necessary */
+  font-size: 18px;
   font-style: italic;
-  color: rgb(27, 55, 13);
+  color: #fff; /* Changed to white for better visibility */
   text-decoration: none;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Adds shadow for better readability */
 }
 
 .hero .navigation ul li a:hover {
-  color: #12220c; /* Darker color on hover */
+  color: #f9a639; /* Lighter color on hover for better interactivity */
 }
 
 @media (max-width: 768px) {
@@ -422,6 +432,12 @@ input[list] {
   .hero .navigation ul li a {
       font-size: 16px; /* Slightly smaller font size for mobile */
   }
+}
+
+/* Ensuring text and icons are visible on the dark background */
+.hero h1, .hero p.intro {
+  color: #fff; /* White color for better visibility */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Shadow makes text stand out more */
 }
 
 
@@ -719,6 +735,23 @@ header .member-actions {
   margin-top: 0; /* Remove negative margin which causes overlap */
   padding-top: 20px; /* Add padding to space out content */
 }
+
+#map .btn-large {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #f9a639; /* Adjust color to fit your theme */
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+#map .btn-large:hover {
+  background-color: #eb6b09;
+}
+
+
+
 
 /* Improvements to ensure visibility and correct stacking */
 .pointer-events-none {
