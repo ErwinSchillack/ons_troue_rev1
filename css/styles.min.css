@@ -444,11 +444,7 @@ input[list] {
   height: 60px; /* Controlled height */
 }
 
-.hero .header-content .logo img {
-  width: 120px; /* Size of the logo */
-  height: auto;
-  transition: transform 0.3s ease;
-}
+
 
 .hero .navigation {
   width: 100%;
@@ -492,10 +488,6 @@ input[list] {
       height: auto; /* Allow dynamic height based on content */
   }
 
-  .hero .header-content .logo {
-      margin-bottom: 10px; /* Space between logo and nav */
-  }
-
   .hero .header-nav {
       flex-direction: column;
   }
@@ -505,34 +497,9 @@ input[list] {
   }
 }
 
-Smaller logo on scroll
+
 .hero.fixed-header .header-content .logo img {
   width: 80px; /* Smaller logo when header is fixed */
-}
-
-/* .hero .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.hero .header-content .logo img {
-    width: 50px;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-    height: auto;
-}
-
-.hero .header-content .logo {
-    margin-right: 20px; /* Ensures spacing from the rest of the navigation */
-
-
-@media (max-width: 768px) {
-    .hero .header-content .logo img {
-        width: 100px;
-        transform: scale(1); /* Adjust if smaller scale is needed */
-    }
 }
 
 
@@ -870,7 +837,7 @@ header .member-actions {
   height: auto; /* Maintains aspect ratio */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 200px) {
   #invitation .logo img {
       max-width: 200px; /* Smaller logo for mobile devices */
   }
