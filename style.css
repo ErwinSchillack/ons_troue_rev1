@@ -53,9 +53,9 @@
     display: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .slideshow-container {
-        height: 200px;
+        height: 300px;
     }
     .slideshow-container .slide img {
         max-height: 100%; /* Ensures the image fits well within the container on small screens */
