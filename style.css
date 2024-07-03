@@ -1,14 +1,11 @@
 .slideshow-container {
     position: relative; /* Ensures arrows are positioned relative to the container */
     max-width: 100%; /* Ensures the container does not exceed the width of its parent */
-    height: 500px; /* Set a fixed height appropriate for your images */
+    height: 300px; /* Fixed height for smaller devices */
     overflow: hidden; /* Hides anything outside this container */
 }
 
 .slideshow-container .slide {
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative; /* Needed for proper arrow placement */
     display: flex; /* Ensures arrows are aligned with images */
     justify-content: center; /* Center aligns the images */
     align-items: center; /* Vertically centers the arrows with the image */
@@ -16,68 +13,44 @@
 }
 
 .slideshow-container .slide img {
-    width: auto; /* Maintains aspect ratio */
-    max-height: 100%; /* Makes sure the image does not exceed the container height */
-    border: 5px solid rgb(27, 55, 13);
-    padding: 10px;
+    max-width: 100%; /* Ensures image does not exceed the width of the container */
+    max-height: 100%; /* Ensures image does not exceed the height of the container */
+    border: 3px solid rgb(27, 55, 13);
+    padding: 5px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: block;
-    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Adjustments for navigation arrows */
 .slideshow-container .prev,
 .slideshow-container .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 10px;
+    padding: 8px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px; /* Smaller font size for better fitting */
     background-color: rgba(0,0,0,0.5);
     z-index: 10; /* Ensures arrows are above the image */
+    border-radius: 3px;
 }
 
 .slideshow-container .next {
-    right: 20px; /* Position on the right edge */
-    border-radius: 3px 0 0 3px;
+    right: 10px; /* Closer to the edge for easier access */
 }
 
 .slideshow-container .prev {
-    left: 20px; /* Position on the left edge */
-    border-radius: 0 3px 3px 0;
+    left: 10px; /* Closer to the edge for easier access */
 }
 
-/* Media Queries for Responsive Adjustments */
-@media (max-width: 768px) {
-    .slideshow-container {
-        height: 300px; /* Smaller fixed height for smaller screens */
-    }
-
-    .slideshow-container .prev, .slideshow-container .next {
-        font-size: 14px; /* Smaller font size */
-        padding: 8px; /* Smaller padding */
-    }
-
-    .slideshow-container .slide img {
-        padding: 5px; /* Less padding around images */
-        border-width: 3px; /* Thinner border */
-    }
+.slideshow-container:not(:hover) .prev,
+.slideshow-container:not(:hover) .next {
+    display: none; /* Hides arrows when not interacting */
 }
 
 @media (max-width: 480px) {
     .slideshow-container {
-        height: 200px; /* Even smaller height for mobile devices */
-    }
-
-    .slideshow-container .prev, .slideshow-container .next {
-        top: 40%; /* Adjusted for better visibility */
-    }
-
-    .slideshow-container .slide img {
-        width: 90%; /* Slightly less than full width for margin */
+        height: 200px; /* Smaller height for very small screens */
     }
 }
