@@ -298,7 +298,7 @@ const guestPhotos = {
     "Detlef Schillack":["img/gaste/dettie.jpeg","img/gaste/dettie_renate_2.jpeg"],
     "Renate Schillack":["img/gaste/renate.jpeg","img/gaste/dettie_renate_2.jpeg"],
     "Annetjie Schillack":["img/gaste/tan_annetjie.jpeg"],
-    "Ruan Theron":["img/gaste/ruan.jpeg","img/gaste/ruan_rulene.jpeg"],
+    "Ruan Theron":["img/gaste/ruan.jpeg","img/gaste/ruan1.jpeg","img/gaste/ruan2.jpeg"],
     "Johanna Theron":["img/gaste/theronne.jpeg","img/gaste/theronne1.jpg"],
     "Danie Theron":["img/gaste/theronne.jpeg","img/gaste/ruan.jpeg"],
     "Rulene Theron":["img/gaste/theronne.jpeg","img/gaste/ruan_rulene.jpeg"],
