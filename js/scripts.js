@@ -318,7 +318,9 @@ const guestPhotos = {
     "JL van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
     "Marne van Zyl":["img/gaste/marne1.jpeg","img/gaste/marne2.jpeg"],
     "Marli Auret":["img/gaste/marli.jpeg"],
-    "Malissa Murphy":["img/gaste/malisa.jpeg"]
+    "Malissa Murphy":["img/gaste/malisa.jpeg"],
+    "Ryan Meerman":["img/gaste/ryan.jpeg"],
+    "Sonnet Meerman":["img/gaste/ryan.jpeg"]
     // Add more guests and their image paths
 };
 
