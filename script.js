@@ -1,9 +1,10 @@
-/***************** Slide SHow ******************/
+/***************** Slide Show ******************/
 
 let slideIndex = 1;
 let slideTimer;
 
 document.addEventListener('DOMContentLoaded', function() {
+    shuffleSlides(); // Shuffle the slides on initial load
     showSlides(slideIndex);
     startSlideShow();
 });
@@ -31,7 +32,27 @@ function startSlideShow() {
 }
 
 function moveSlide(n) {
-  clearTimeout(slideTimer); // Clear the existing timer
-  showSlides(slideIndex += n);
-  startSlideShow(); // Restart the slideshow after manual navigation
+    clearTimeout(slideTimer); // Clear the existing timer
+    showSlides(slideIndex += n);
+    startSlideShow(); // Restart the slideshow after manual navigation
+}
+
+function shuffleSlides() {
+    const container = document.querySelector('.slideshow-container');
+    let slides = Array.from(container.getElementsByClassName("slide"));
+    shuffleArray(slides);
+    container.innerHTML = ''; // Clear the current slides
+
+    // Append shuffled slides back to the container
+    slides.forEach(slide => {
+        container.appendChild(slide);
+    });
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
 }

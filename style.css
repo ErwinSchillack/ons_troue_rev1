@@ -1,21 +1,25 @@
 .slideshow-container {
-    position: relative; /* Ensures arrows are positioned relative to the container */
-    max-width: 100%; /* Ensures the container does not exceed the width of its parent */
-    height: 300px; /* Fixed height for smaller devices */
-    overflow: hidden; /* Hides anything outside this container */
+    position: relative;
+    width: 100%; /* Use full width of the container */
+    max-width: 1000px; /* Maximum width can be adjusted based on your design */
+    margin: auto; /* This will center the slideshow horizontally */
+    height: 300px; /* Adjusted for mobile */
+    overflow: hidden;
 }
 
 .slideshow-container .slide {
-    display: flex; /* Ensures arrows are aligned with images */
-    justify-content: center; /* Center aligns the images */
-    align-items: center; /* Vertically centers the arrows with the image */
-    height: 100%; /* Ensures each slide is the same height as the container */
+    display: flex;
+    justify-content: center; /* Ensures center alignment horizontally */
+    align-items: center; /* Ensures center alignment vertically */
+    height: 100%;
+    width: 100%; /* Ensures each slide uses the full width of the container */
 }
 
 .slideshow-container .slide img {
-    max-width: 100%; /* Ensures image does not exceed the width of the container */
-    max-height: 100%; /* Ensures image does not exceed the height of the container */
-    border: 3px solid rgb(27, 55, 13);
+    max-width: 100%; /* Prevents the image from exceeding the width of the slide */
+    max-height: 100%; /* Ensures the image fits within the slide's height */
+    object-fit: contain; /* Ensures the image's aspect ratio is preserved */
+    border: 5px solid rgb(27, 55, 13);
     padding: 5px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -30,27 +34,31 @@
     padding: 8px;
     color: white;
     font-weight: bold;
-    font-size: 16px; /* Smaller font size for better fitting */
+    font-size: 16px;
     background-color: rgba(0,0,0,0.5);
-    z-index: 10; /* Ensures arrows are above the image */
+    z-index: 10;
     border-radius: 3px;
 }
 
 .slideshow-container .next {
-    right: 10px; /* Closer to the edge for easier access */
+    right: 10px;
 }
 
 .slideshow-container .prev {
-    left: 10px; /* Closer to the edge for easier access */
+    left: 10px;
 }
 
 .slideshow-container:not(:hover) .prev,
 .slideshow-container:not(:hover) .next {
-    display: none; /* Hides arrows when not interacting */
+    display: none;
 }
 
 @media (max-width: 480px) {
     .slideshow-container {
-        height: 200px; /* Smaller height for very small screens */
+        height: 200px;
+    }
+    .slideshow-container .slide img {
+        max-height: 100%; /* Ensures the image fits well within the container on small screens */
     }
 }
+

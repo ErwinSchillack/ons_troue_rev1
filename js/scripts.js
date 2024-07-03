@@ -264,7 +264,7 @@ const couples = {
     "Riaan Smit ?":"Susanne Juling Smit ?",
     "Elria Wentzel":"Maurits Wentzel",
     "John Marais":"Jessica Henn",
-    "Kai Juling":"Lume ?",
+    "Kai Juling":"Lume",
     "Waldo Cilliers":"Luvonne Cilliers",
     "Ryan Meerman":"Sonnet Meerman",
     "Mariaan Prins":"Dolf Frick",
@@ -293,7 +293,7 @@ const guestPhotos = {
     "Charne Viljoen":["img/gaste/viljoene.jpeg","img/gaste/carlie.jpeg"],
     "Adell Blom":["img/gaste/adell_neil.jpeg"],
     "Neil Blom":["img/gaste/adell_neil.jpeg"],
-    "Andrea Jansen van Rensburg? ":["img/gaste/andrea.jpeg"],
+    "Andrea Jansen van Rensburg":["img/gaste/andrea.jpeg"],
     "Jaco Jansen van Rensburg":["img/gaste/andrea.jpeg"],
     "Detlef Schillack":["img/gaste/dettie.jpeg","img/gaste/dettie_renate_2.jpeg"],
     "Renate Schillack":["img/gaste/renate.jpeg","img/gaste/dettie_renate_2.jpeg"],
@@ -307,7 +307,7 @@ const guestPhotos = {
     "Kai Juling":["img/gaste/kai_lume.jpeg","img/gaste/kai1.jpeg","img/gaste/kai2.jpeg"],
     "John Marais":["img/gaste/john_jess.jpeg","img/gaste/john1.jpeg","img/gaste/kai1.jpeg"],
     "Jessica Henn":["img/gaste/john_jess.jpeg"],
-    "Jonty Swanevelder":["img/gaste/jonty1.jpeg","img/gaste/jonty2.jpeg"],
+    "Jonty Swanevelder":["img/gaste/jonty3.jpeg","img/gaste/jonty1.jpeg","img/gaste/jonty2.jpeg"],
     "HJ de Bruyn":["img/gaste/hj.jpeg","img/gaste/hj2.jpeg"],
     "Dwayne Wentzel":["img/gaste/dwayne.jpeg"],
     "Faf du Plessis":["img/gaste/faf_retha.jpeg"],
@@ -316,15 +316,30 @@ const guestPhotos = {
     "Marilize de Ridder":["img/gaste/marlize.jpeg"],
     "Sonya van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
     "JL van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
-    "Marne van Zyl":["img/gaste/marne1.jpeg","img/gaste/marne2.jpeg"]
+    "Marne van Zyl":["img/gaste/marne1.jpeg","img/gaste/marne2.jpeg"],
+    "Marli Auret":["img/gaste/marlie.jpeg"],
+    "Malissa Murphy":["img/gaste/malisa.jpeg"]
     // Add more guests and their image paths
 };
 
 
+// Function to normalize names for comparison
+function normalizeName(name) {
+    return name.trim().toLowerCase(); // Trim spaces and convert to lowercase
+}
+
 document.getElementById('rsvp-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const guestName = document.querySelector('input[name="name"]').value;
-    const photos = guestPhotos[guestName] || ['img/eng_pics/H&E9.jpg']; // Default image if no match
+    let guestName = document.querySelector('input[name="name"]').value;
+    guestName = normalizeName(guestName); // Normalize the input for comparison
+
+    // Find the photo based on normalized name, default if not found
+    const photos = Object.keys(guestPhotos).reduce((acc, key) => {
+        if (normalizeName(key) === guestName) {
+            return guestPhotos[key];
+        }
+        return acc;
+    }, ['img/eng_pics/H&E9.jpg']);
 
     const photoContainer = document.getElementById('guestPhotoGallery');
     photoContainer.innerHTML = ''; // Clear previous images
@@ -333,10 +348,11 @@ document.getElementById('rsvp-form').addEventListener('submit', function(event) 
         const img = document.createElement('img');
         img.src = photo;
         img.alt = `Photo of ${guestName}`;
+        img.style.width = "100%"; // Set the image width to fit container
         photoContainer.appendChild(img);
     });
 
-    $('#rsvp-modal').modal('show');
+    $('#rsvp-modal').modal('show'); // Show modal with images
 });
 
 
