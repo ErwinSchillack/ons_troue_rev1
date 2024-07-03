@@ -1,9 +1,9 @@
 .slideshow-container {
     position: relative;
     width: 100%; /* Use full width of the container */
-    max-width: 1000px; /* Maximum width can be adjusted based on your design */
+    max-width: 700px; /* Maximum width can be adjusted based on your design */
     margin: auto; /* This will center the slideshow horizontally */
-    height: 300px; /* Adjusted for mobile */
+    height: 500px; /* Adjusted for mobile */
     overflow: hidden;
 }
 

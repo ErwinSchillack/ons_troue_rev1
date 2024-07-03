@@ -191,7 +191,7 @@ $(document).ready(function () {
             title: "Erwin en Hanneke se Troue",
 
             // Event start date
-            start: new Date('Nov 23, 2024 15:00'),
+            start: new Date('Nov 23, 2024 15:30'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
@@ -317,7 +317,7 @@ const guestPhotos = {
     "Sonya van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
     "JL van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
     "Marne van Zyl":["img/gaste/marne1.jpeg","img/gaste/marne2.jpeg"],
-    "Marli Auret":["img/gaste/marlie.jpeg"],
+    "Marli Auret":["img/gaste/marli.jpeg"],
     "Malissa Murphy":["img/gaste/malisa.jpeg"]
     // Add more guests and their image paths
 };
