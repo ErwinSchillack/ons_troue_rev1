@@ -1,18 +1,25 @@
 .slideshow-container .slide img {
-    max-width: 90%; /* Limiting maximum width to improve aesthetics */
+    width: 100%; /* Ensures images are not larger than their container */
     height: auto; /* Maintains aspect ratio */
     border: 5px solid rgb(27, 55, 13);
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: block;
-    margin: 20px auto; /* Centers the image and adds vertical space */
+    margin: 0 auto;
+}
+
+.slideshow-container .slide {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Needed for proper arrow placement */
+    display: flex; /* Ensures arrows are aligned with images */
+    justify-content: center; /* Center aligns the images */
+    align-items: center; /* Vertically centers the arrows with the image */
 }
 
 .slideshow-container {
-    text-align: center; /* Ensures images and arrows are centered */
-    padding: 20px 0; /* Adds padding around the slideshow for spacing */
-    position: relative; /* Keeps arrows within the container */
+    position: relative; /* Ensures arrows are positioned relative to the container */
 }
 
 .slideshow-container .prev,
@@ -21,40 +28,59 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 12px;
+    padding: 10px;
     color: white;
     font-weight: bold;
-    font-size: 24px;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 10;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10; /* Ensures arrows are above the image */
 }
 
 .slideshow-container .next {
-    right: 10px; /* Positions to the right inside the container */
+    right: 20px; /* Position on the right edge */
+    border-radius: 3px 0 0 3px;
 }
 
 .slideshow-container .prev {
-    left: 10px; /* Positions to the left inside the container */
+    left: 20px; /* Position on the left edge */
+    border-radius: 0 3px 3px 0;
 }
 
-/* Responsive Adjustments for smaller screens */
+/* Hide arrows when not hovered */
+.slideshow-container:not(:hover) .prev,
+.slideshow-container:not(:hover) .next {
+    display: none;
+}
+
+/* Media Queries for Responsive Adjustments */
 @media (max-width: 768px) {
-    .slideshow-container .slide img {
-        max-width: 95%; /* Allows a bit more width on smaller screens */
+    .slideshow-container .prev, .slideshow-container .next {
+        font-size: 14px; /* Smaller font size */
+        padding: 8px; /* Smaller padding */
     }
 
-    .slideshow-container .prev, .slideshow-container .next {
-        font-size: 18px; /* Smaller arrows on smaller screens */
-        padding: 10px; /* Smaller padding for arrows */
+    .slideshow-container .slide img {
+        padding: 5px; /* Less padding around images */
+        border-width: 3px; /* Thinner border */
+    }
+
+    #events img {
+        max-width: 100%; /* Full width within column */
+        margin-top: 10px; /* Less margin on the top */
+        margin-bottom: 10px; /* Less margin on the bottom */
+    }
+
+    #events .col-md-6 {
+        padding: 10px; /* Less padding around text and images */
     }
 }
 
 @media (max-width: 480px) {
     .slideshow-container .slide img {
-        max-width: 100%; /* Full width on very small screens */
+        width: 90%; /* Slightly less than full width for margin */
     }
 
-    .slideshow-container {
-        padding: 10px 0; /* Less padding in the container */
+    .slideshow-container .prev, .slideshow-container .next {
+        top: 40%; /* Adjusted for better visibility */
     }
 }

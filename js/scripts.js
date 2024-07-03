@@ -284,7 +284,7 @@ const guestPhotos = {
     "Erwin Schillack": ["img/eng_pics/WhatsApp Image 2024-04-17 at 19.50.56 (1).jpeg","img/eng_pics/H&E186.jpg" ],
     "Volker Schillack":["img/eng_pics/egesin.jpeg"],
     "Nicolene Schillack":["img/eng_pics/egesin.jpeg"],
-    "Reiner Schillack":["img/eng_pics/egesin.jpeg","img/eng_pics/reiner.jpeg"," "],
+    "Reiner Schillack":["img/eng_pics/egesin.jpeg","img/eng_pics/reiner.jpeg"],
     "Jaco Augustyn":["img/gaste/h_ouers.jpeg"],
     "Charlotte Augustyn":["img/gaste/h_ouers.jpeg"],
     "Dolf Frick":["img/gaste/dolf_mariaan.jpeg"],
@@ -298,10 +298,10 @@ const guestPhotos = {
     "Detlef Schillack":["img/gaste/dettie.jpeg","img/gaste/dettie_renate_2.jpeg"],
     "Renate Schillack":["img/gaste/renate.jpeg","img/gaste/dettie_renate_2.jpeg"],
     "Annetjie Schillack":["img/gaste/tan_annetjie.jpeg"],
-    "Ruan Theron":["img/gaste/ruan.jpeg"," "],
-    "Johanna Theron":["img/gaste/theronne.jpeg","img/gaste/tan_oom_theron.jpeg"],
+    "Ruan Theron":["img/gaste/ruan.jpeg","img/gaste/ruan_rulene.jpeg"],
+    "Johanna Theron":["img/gaste/theronne.jpeg","img/gaste/theronne1.jpg"],
     "Danie Theron":["img/gaste/theronne.jpeg","img/gaste/ruan.jpeg"],
-    "Rulene Theron":["img/gaste/theronne.jpeg"],
+    "Rulene Theron":["img/gaste/theronne.jpeg","img/gaste/ruan_rulene.jpeg"],
     "Viandrie Robertson":["img/gaste/viandrie.jpeg"],
     "Waldo Cilliers":["img/gaste/waldo.jpeg"],
     "Kai Juling":["img/gaste/kai_lume.jpeg","img/gaste/kai1.jpeg","img/gaste/kai2.jpeg"],
@@ -315,7 +315,8 @@ const guestPhotos = {
     "Hennie du Ridder":["img/gaste/marlize.jpeg"],
     "Marilize de Ridder":["img/gaste/marlize.jpeg"],
     "Sonya van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
-    "JL van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"]
+    "JL van Zyl":["img/gaste/sonya.jpeg","img/gaste/sonya_jl_1.jpeg"],
+    "Marne van Zyl":["img/gaste/marne1.jpeg","img/gaste/marne2.jpeg"]
     // Add more guests and their image paths
 };
 
@@ -323,7 +324,7 @@ const guestPhotos = {
 document.getElementById('rsvp-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const guestName = document.querySelector('input[name="name"]').value;
-    const photos = guestPhotos[guestName] || ['img/eng_pics/H&E108.jpg']; // Default image if no match
+    const photos = guestPhotos[guestName] || ['img/eng_pics/H&E9.jpg']; // Default image if no match
 
     const photoContainer = document.getElementById('guestPhotoGallery');
     photoContainer.innerHTML = ''; // Clear previous images
