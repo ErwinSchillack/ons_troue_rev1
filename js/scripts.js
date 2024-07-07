@@ -141,32 +141,32 @@ $(document).ready(function () {
     });
 
     /********************** Social Share buttons ***********************/
-    var share_bar = document.getElementsByClassName('share-bar');
-    var po = document.createElement('script');
-    po.type = 'text/javascript';
-    po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
+    // var share_bar = document.getElementsByClassName('share-bar');
+    // var po = document.createElement('script');
+    // po.type = 'text/javascript';
+    // po.async = true;
+    // po.src = 'https://apis.google.com/js/platform.js';
+    // var s = document.getElementsByTagName('script')[0];
+    // s.parentNode.insertBefore(po, s);
 
-    for (var i = 0; i < share_bar.length; i++) {
-        var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
-            'style="width:105px; height:21px;">' +
-            '</iframe>' +
+    // for (var i = 0; i < share_bar.length; i++) {
+    //     var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
+    //         'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
+    //         'style="width:105px; height:21px;">' +
+    //         '</iframe>' +
 
-            '<iframe src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(window.location) + '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=101094500229731&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
+    //         '<iframe src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(window.location) + '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=101094500229731&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
 
-            '<div class="g-plusone" data-size="medium"></div>';
+    //         '<div class="g-plusone" data-size="medium"></div>';
 
-        // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
+    //     // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
 
-        share_bar[i].innerHTML = html;
-        share_bar[i].style.display = 'inline-block';
-    }
+    //     share_bar[i].innerHTML = html;
+    //     share_bar[i].style.display = 'inline-block';
+    // }
 
-    /********************** Embed youtube video *********************/
-    $('.player').YTPlayer();
+    // /********************** Embed youtube video *********************/
+    // $('.player').YTPlayer();
 
 
     /********************** Toggle Map Content **********************/
@@ -180,35 +180,43 @@ $(document).ready(function () {
     });
 
     /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
-        options: {
-            class: '',
-            // You can pass an ID. If you don't, one will be generated for you
-            id: ''
-        },
-        data: {
-            // Event title
-            title: "Erwin en Hanneke se Troue",
-
-            // Event start date
-            start: new Date('Nov 23, 2024 15:30'),
-
-            // Event duration (IN MINUTES)
-            // duration: 120,
-
-            // You can also choose to set an end time
-            // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 23, 2024 00:00'),
-
-            // Event Address
-            address: 'Langkloof Rose, Wellington',
-
-            // Event Description
-            description: "Ons kan nie wag om julle te sien nie."
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Listen for the modal to be shown, which is a good time to adjust contents dynamically
+        $('#rsvp-modal').on('shown.bs.modal', function () {
+            const eventData = {
+                title: "Erwin en Hanneke se Troue",
+                start: new Date('2024-11-23T15:30:00'),
+                end: new Date('2024-11-24T00:00:00'),
+                address: 'Langkloof Rose, Wellington',
+                description: "Ons kan nie wag om julle te sien nie."
+            };
+    
+            function createGoogleCalendarUrl(data) {
+                let baseUrl = "https://www.google.com/calendar/render";
+                let params = new URLSearchParams({
+                    action: 'TEMPLATE',
+                    text: data.title,
+                    dates: `${formatDate(data.start)}/${formatDate(data.end)}`,
+                    details: data.description,
+                    location: data.address,
+                    sprop: 'website:example.com',
+                    sf: true
+                });
+    
+                return `${baseUrl}?${params.toString()}`;
+            }
+    
+            function formatDate(date) {
+                return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
+            }
+    
+            // Dynamically adding the calendar link
+            let calendarUrl = createGoogleCalendarUrl(eventData);
+            let linkHtml = `<a href="${calendarUrl}" target="_blank" class="btn btn-primary">Voeg by Google Kalender</a>`;
+            document.getElementById('add-to-cal').innerHTML = linkHtml;
+        });
     });
 
-    $('#add-to-cal').html(myCalendar);
 
 
     /********************** RSVP **********************/
@@ -282,9 +290,10 @@ const couples = {
 const guestPhotos = {
     "Hanneke Augustyn": ["img/eng_pics/WhatsApp Image 2024-04-17 at 19.50.56 (1).jpeg","img/eng_pics/H&E186.jpg" ],
     "Erwin Schillack": ["img/eng_pics/WhatsApp Image 2024-04-17 at 19.50.56 (1).jpeg","img/eng_pics/H&E186.jpg" ],
-    "Volker Schillack":["img/eng_pics/egesin.jpeg"],
-    "Nicolene Schillack":["img/eng_pics/egesin.jpeg"],
-    "Reiner Schillack":["img/eng_pics/egesin.jpeg","img/eng_pics/reiner.jpeg"],
+    "Volker Schillack":["img/eng_pics/egesin.jpeg","img/gaste/almal.jpeg"],
+    "Nicolene Schillack":["img/eng_pics/egesin.jpeg","img/gaste/almal.jpeg"],
+    "Reiner Schillack":["img/eng_pics/egesin.jpeg","img/gaste/reiner.jpeg"],
+    "Isabel de Jager":["img/gaste/isabel.jpeg","img/gaste/almal.jpeg"],
     "Jaco Augustyn":["img/gaste/h_ouers.jpeg"],
     "Charlotte Augustyn":["img/gaste/h_ouers.jpeg"],
     "Dolf Frick":["img/gaste/dolf_mariaan.jpeg"],

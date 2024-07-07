@@ -347,6 +347,16 @@ input[list] {
     width: 100%; /* Ensure the input field is wide enough */
 }
 
+add-to-cal {
+  margin-top: 20px; /* Adds space above the button */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Bootstrap primary blue */
+  border-color: #007bff;
+  color: white;
+}
+
 
 .hero {
   min-height: 1650px;
